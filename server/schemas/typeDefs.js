@@ -9,6 +9,16 @@ type Customer {
     email: String
 }
 
+type Pizza {
+    _id: ID
+    pizzaName: String
+    pizzaType: String
+    foodImage: String
+    quantity: Int
+    pizzaPrice: Float
+    category: Category
+  }
+
 type Auth {
     token: ID!
     customer: Customer
