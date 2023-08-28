@@ -1,5 +1,4 @@
 import React from "react";
-
 import Home from "./Home";
 import Menu from "./Menu";
 import About from "./About";
@@ -7,8 +6,7 @@ import Team from "./Team";
 import Login from "./Login";
 import RegisterAccount from "./RegisterAccount";
 import Contact from "./Contact";
-
-import { capitalize } from '../utils'
+import { capitalize } from '../utils';
 
 const Page = ({ currentPage }) => {
     const renderPage = (page) => {
@@ -20,20 +18,17 @@ const Page = ({ currentPage }) => {
             case 'team':
                 return <Team />;
             case 'login': 
-                return <Login />
+                return <Login />;
             case 'register-account': 
-                return <RegisterAccount />
+                return <RegisterAccount />;
             case 'contact': 
-                return <Contact />
+                return <Contact />;
             default:
                 return <Home />;
-        }
+        };
     };
 
-    return <section className="container py-3">
-        <h2 className="mb-3">{ capitalize(currentPage) }</h2>
-        {renderPage(currentPage)}
-    </section>;
+    return <section>{ renderPage(currentPage) }</section>;
 };
 
 export default Page;
