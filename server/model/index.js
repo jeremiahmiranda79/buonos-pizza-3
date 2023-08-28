@@ -1,5 +1,6 @@
 const Customer = require('./customerModel')
+const Pizza = require('./pizzaModel')
 
 
 
-module.exports = { Customer }
+module.exports = { Customer, Pizza }

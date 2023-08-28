@@ -21,6 +21,6 @@ const customerSchema = new Schema({
       }, 
 }, { timestamp: true })
 
-const Customer = model('Customer', customerSchema)
+// const Customer = model('Customer', customerSchema)
 
-module.exports = Customer
+module.exports = model('Customer', customerSchema)

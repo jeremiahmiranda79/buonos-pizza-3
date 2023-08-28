@@ -7,13 +7,14 @@ module.exports = {
             return await Customer.find({})
         },
 
-        customer: async (parent, { _id }) => {
+        customer: async (_, { _id }) => {
             return await Customer.findOne({_id})
+            // return await Customer.findById({_id})            
         }
     },
 
     Mutation: {
-        addCustomer: async (parent, args) => {
+        addCustomer: async (_, args) => {
             return await Customer.create(args)
         }
     }
