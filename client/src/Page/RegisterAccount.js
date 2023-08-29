@@ -1,11 +1,25 @@
+// import React from "react";
+// import SignUpForm from "../components/SignUpForm";
+
+// const RegisterAccount = () => {
+//   return (
+//     <div>
+//       <SignUpForm />
+//     </div>
+//   );
+// };
+
+// export default RegisterAccount;
 import React from "react";
-
-const RegisterAccount = () => {
-    return (
-        <>
-              <h1>Charbel</h1>  
-        </>
-    )
-}
-
-export default RegisterAccount;
+import AddressForm from "../components/SignUpFormTest";
+// import { GoogleApiWrapper } from ".";
+const googleAutoAddress = () => {
+  return (
+    <div className="container">
+      <h1>Address Form with Autocomplete</h1>
+      <AddressForm />
+    </div>
+  );
+};
+export default googleAutoAddress;
+// ReactDOM.render(<App />, document.getElementById("root"));
