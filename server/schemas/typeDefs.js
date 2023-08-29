@@ -10,27 +10,29 @@ type Customer {
 }
 
 type Pizza {
-    _id: ID
+    _id: ID!
     pizzaName: String
     pizzaType: String
+    pizzaSize: String
     foodImage: String
-    quantity: Int
     pizzaPrice: Float
-    category: Category
+    quantity: Int
   }
 
 type Auth {
-    token: ID!
+    token: ID
     customer: Customer
 }
 
 type Query {
     customers: [Customer]
     customer(_id: ID!): Customer
+    pizzas: [Pizza]
+    pizza(_id: ID!): Pizza
 }
 
 type Mutation {
-    addCustomer(firstName: String!,lastName: String!, password: String!, email: String!): Customer
+    addCustomer(firstName: String!,lastName: String!, password: String!, email: String!): Auth
+    login(email: String!, password: String!): Auth
 }
 `
-// TODO: Will need to provide token once auth is working for Mutation

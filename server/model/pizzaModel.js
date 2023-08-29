@@ -29,13 +29,13 @@ const productSchema = new Schema({
     min: 0,
     default: 0
   },
-  category: {
-    type: Schema.Types.ObjectId,
-    ref: 'Category',
-    required: true
-  }
+  // category: {
+  //   type: Schema.Types.ObjectId,
+  //   ref: 'Category',
+  //   required: true
+  // }
 });
 
-// const Pizza = mongoose.model('Pizza', productSchema);
+const Pizza = mongoose.model('Pizza', productSchema);
 
-module.exports = model('Pizza', productSchema);
+module.exports = Pizza;
