@@ -70,6 +70,7 @@ p {
     font-size: 1.1rem;
     margin-top: 0;
     color: var(--light);
+    color: var(--dark);
 }
 
 a {
