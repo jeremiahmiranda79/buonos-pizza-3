@@ -1,11 +1,12 @@
 import React from "react";
+import LoginForm from "../components/LoginForm";
 
 const Login = () => {
-    return (
-        <>
-            <h1>Charbel</h1>
-        </>
-    )
-}
+  return (
+    <div>
+      <LoginForm />
+    </div>
+  );
+};
 
 export default Login;
