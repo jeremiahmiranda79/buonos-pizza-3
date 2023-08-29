@@ -1,6 +1,7 @@
 const Customer = require('./customerModel')
 const Pizza = require('./pizzaModel')
+const Order = require('./orderModel')
 
 
 
-module.exports = { Customer, Pizza }
+module.exports = { Customer, Pizza, Order }

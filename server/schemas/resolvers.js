@@ -1,26 +1,34 @@
-const { Customer, Pizza } = require("../model");
-const { AuthenticationError } = require('apollo-server-express');
-const { signToken } = require('../utils/auth');
+const { Customer, Pizza, Order } = require("../model");
 
 // Look at documentation for error handling on Apollo
-const resolvers = {
+module.exports = {
   Query: {
     customers: async () => {
       return await Customer.find({});
     },
+    customer: async (_, { _id }) => {
+      return await Customer.findOne({ _id });
+    },
     pizzas: async () => {
       return await Pizza.find({});
     },
-
-    customer: async (_, { _id }) => {
-      return await Customer.findOne({ _id });
-      // return await Customer.findById({_id})
+    pizza: async (_, { _id }) => {
+      return await Pizza.findOne({ _id });
+    },
+    order: async (_, args) => {
+      return await Order.findById(args);
     },
   },
 
   Mutation: {
     addCustomer: async (_, args) => {
       return await Customer.create(args);
+    },
+    addOrder: async (_, args) => {
+      return await Order.create(args);
+    },
+    addPizza: async (_, args) => {
+      return await Pizza.create(args);
     },
     login: async (parent, { email, password }) => {
       const customer = await Customer.findOne({ email });
@@ -36,4 +44,3 @@ const resolvers = {
     },
   },
 };
-module.exports = resolvers;
