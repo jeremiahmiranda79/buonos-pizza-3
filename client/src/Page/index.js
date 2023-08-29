@@ -6,6 +6,7 @@ import Team from "./Team";
 import Login from "./Login";
 import RegisterAccount from "./RegisterAccount";
 import Contact from "./Contact";
+import Details from "./Details";
 import { capitalize } from '../utils';
 
 const Page = ({ currentPage }) => {
@@ -23,6 +24,8 @@ const Page = ({ currentPage }) => {
                 return <RegisterAccount />;
             case 'contact': 
                 return <Contact />;
+            case 'details':
+                return <Details />;
             default:
                 return <Home />;
         };
