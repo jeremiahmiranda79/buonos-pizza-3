@@ -17,7 +17,7 @@ module.exports = {
       return await Pizza.findOne({ _id });
     },
     order: async (_, args) => {
-      return await Order.findById(args);
+      return await Order.findById(args).populate('pizzas').populate('customer');
     },
     // checkout: async (parent, args, context) => {
     //   const url = new URL(context.headers.referer).origin;
@@ -62,7 +62,10 @@ module.exports = {
       return await Customer.create(args);
     },
     addOrder: async (_, args) => {
-      return await Order.create(args);
+      console.log('This is my args: ', args);
+      const newOrder = await Order.create(args);
+      console.log('This is my newOrder: ', newOrder);
+      return (await newOrder.populate('pizzas')).populate('customer')
     },
     addPizza: async (_, args) => {
       return await Pizza.create(args);
