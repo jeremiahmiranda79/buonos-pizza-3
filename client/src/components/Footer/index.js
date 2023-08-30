@@ -1,37 +1,37 @@
 import React from "react";
-import logo from '../../assets/bunos-background-transparent.png';
+import logo from "../../assets/bunos-background-transparent.png";
+import "./index.css";
 
 const Footer = () => {
-    const icons = [
-        {
-            name: 'fab fa-instagram',
-            link: 'htts://github.com', 
-        },
-        {
-            name: 'fab fa-facebook',
-            link: 'htts://linkedin.com', 
-        }
-    ];
+  const icons = [
+    {
+      name: "fab fa-instagram",
+      link: "htts://github.com",
+    },
+    {
+      name: "fab fa-facebook",
+      link: "htts://linkedin.com",
+    },
+  ];
 
-    return (
-        <footer > 
-            <div className="d-flex justify-content-center align-items-center">
-                <img className="footer-logo" src={logo}/>
-                <h1>Buono's Pizza</h1>
-                { 
-                    icons.map((icon) => (
-                        <a 
-                            href={icon.link} 
-                            key={icon.name}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="mx-3">
-                                <i className={`${icon.name}`}></i>
-                        </a>
-                    ))
-                }
-            </div>
-            {/* <div>
+  return (
+    <footer className="footer">
+      <div className="d-flex justify-content-center align-items-center">
+        <img className="footer-logo" src={logo} />
+        <h1>Buono's Pizza</h1>
+        {icons.map((icon) => (
+          <a
+            href={icon.link}
+            key={icon.name}
+            target="_blank"
+            rel="noreferrer"
+            className="mx-3"
+          >
+            <i className={`${icon.name}`}></i>
+          </a>
+        ))}
+      </div>
+      {/* <div>
                 <div>
                     <h1>Folow Us</h1>
                     <div>
@@ -73,8 +73,8 @@ const Footer = () => {
                 }
                 </div>
             </div> */}
-        </footer>
-    );
+    </footer>
+  );
 };
 
 export default Footer;
