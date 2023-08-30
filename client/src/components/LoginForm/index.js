@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import "../LoginForm/index.css";
 
 function LoginForm() {
+  const [email, setEmail] = useState("");
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
   return (
     <div className="container">
       <form>
         <div class="form-group">
           <label for="exampleInputEmail1">Email address</label>
           <input
+            value={email}
+            onChange={handleEmailChange}
             type="email"
             class="form-control"
             id="exampleInputEmail1"
