@@ -140,32 +140,9 @@ const products = [
 ];
 
 function ProductList() {
-  const { loading, data } = useQuery(QUERY_PIZZAS);
-  const pizzas = data?.pizzas || [];
-
     return (
         <div className="my-2">
           <h2>Our Products:</h2>
-          {/* {state.products.length ? ( */}
-          {products.length ? (
-            <div className="flex-row">
-              {/* {filterProducts().map((product) => ( */}
-              {pizzas.map((pizza) => (
-                <ProductItem
-                    key={pizza._id}
-                    _id={pizza._id}
-                    //image={product.image}
-                    image={logo}
-                    name={pizza.name}
-                    price={pizza.price}
-                    quantity={pizza.quantity}
-                />
-              ))}
-            </div>
-          ) : (
-            <h3>You haven't added any products yet!</h3>
-          )}
-          {/* {loading ? <img src={spinner} alt="loading" /> : null} */}
         </div>
     );
 }

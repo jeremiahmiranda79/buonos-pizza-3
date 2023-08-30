@@ -6,7 +6,7 @@ const db = require('./config/connection')
 const path = require('path');
 
 // Express app
-const PORT = process.env.PORT || 3002;
+const PORT = process.env.PORT || 3001;
 const app = express();
 
 const server = new ApolloServer({
