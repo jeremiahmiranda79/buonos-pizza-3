@@ -5,18 +5,18 @@ const { model, Schema } = mongoose;
 const orderSchema = new Schema({
   totalPrice: {
     type: Number,
-    required: true
+    required: false
   },
-  Customer: {
+  customer: {
     type: Schema.Types.ObjectId,
     ref: 'Customer',
     required: true
   },
-  Pizza: {
+  pizzas: [{
     type: Schema.Types.ObjectId,
     ref: 'Pizza',
     required: true
-  },
+  }],
 });
 
 const Order = mongoose.model('Order', orderSchema);

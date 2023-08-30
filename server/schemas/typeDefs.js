@@ -62,6 +62,6 @@ module.exports = gql`
       pizzaPrice: Float!
     ): Pizza
     
-    addOrder(pizzas: [ID]!, customer: ID!): Order
+    addOrder(pizzas: [ID], customer: ID!): Order
   }
 `;
