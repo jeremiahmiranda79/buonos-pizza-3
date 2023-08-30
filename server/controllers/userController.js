@@ -1,4 +1,4 @@
-const { User } = require("../models");
+const { User, Pizza } = require("../models");
 const { signToken } = require("../utils/auth");
 
 module.exports = {
@@ -10,6 +10,14 @@ module.exports = {
     }
     const token = signToken(user);
     res.json({ token, user });
+  },
+
+  async getPizzas({ body }, res) {
+    const pizzas = await Pizza.findAll();
+    if (!pizzas) {
+      return res.status(400).json({ message: "Something is wrong!" });
+    }
+    res.json({pizzas});
   },
 
   async login({ body }, res) {
