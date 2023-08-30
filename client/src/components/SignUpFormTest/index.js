@@ -16,34 +16,34 @@ class AddressForm extends Component {
       zipcode: "",
     };
   }
-//   componentDidMount() {
-//     // Check if the google object is available before using it
-//     const { google } = this.props;
-//     if (google) {
-//       // Initialize Google Autocomplete
-//       this.autocomplete = new google.maps.places.Autocomplete(
-//         this.autocompleteInput.current
-//       );
-//       this.autocomplete.addListener("place_changed", this.handlePlaceChanged);
-//     }
-//   }
+  componentDidMount() {
+    // Check if the google object is available before using it
+    const { google } = this.props;
+    if (google) {
+      // Initialize Google Autocomplete
+      this.autocomplete = new google.maps.places.Autocomplete(
+        this.autocompleteInput.current
+      );
+      this.autocomplete.addListener("place_changed", this.handlePlaceChanged);
+    }
+  }
 
-//   handlePlaceChanged = () => {
-//     const place = this.autocomplete.getPlace();
-//     console.log("Selected Place:", place);
+  handlePlaceChanged = () => {
+    const place = this.autocomplete.getPlace();
+    console.log("Selected Place:", place);
 
-//     // Extract address components and update the state
-//     const addressComponents = place.address_components;
-//     addressComponents.forEach((component) => {
-//       if (component.types.includes("locality")) {
-//         this.setState({ city: component.long_name });
-//       } else if (component.types.includes("administrative_area_level_1")) {
-//         this.setState({ state: component.short_name });
-//       } else if (component.types.includes("postal_code")) {
-//         this.setState({ zipcode: component.long_name });
-//       }
-//     });
-//   };
+    // Extract address components and update the state
+    const addressComponents = place.address_components;
+    addressComponents.forEach((component) => {
+      if (component.types.includes("locality")) {
+        this.setState({ city: component.long_name });
+      } else if (component.types.includes("administrative_area_level_1")) {
+        this.setState({ state: component.short_name });
+      } else if (component.types.includes("postal_code")) {
+        this.setState({ zipcode: component.long_name });
+      }
+    });
+  };
   render() {
     return (
       <div className="scroll">
@@ -123,6 +123,6 @@ class AddressForm extends Component {
     );
   }
 }
-// export default GoogleApiWrapper({
-//   apiKey: "AIzaSyAlegkgNSCs2tjrGNSg9k5x7OJrz-g8dY4",
-// })(AddressForm);
+export default GoogleApiWrapper({
+  apiKey: "AIzaSyAlegkgNSCs2tjrGNSg9k5x7OJrz-g8dY4",
+})(AddressForm);
