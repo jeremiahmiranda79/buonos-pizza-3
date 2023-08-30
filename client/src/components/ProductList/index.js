@@ -1,6 +1,8 @@
 import React from "react";
 import ProductItem from '../ProductItem';
 import logo from '../../assets/bunos-background-transparent.png'
+import { QUERY_PIZZAS } from "../../utils/queries";
+import {useQuery} from '@apollo/client';
 
 const products = [
   {
@@ -138,6 +140,9 @@ const products = [
 ];
 
 function ProductList() {
+  const { loading, data } = useQuery(QUERY_PIZZAS);
+  const pizzas = data?.pizzas || [];
+
     return (
         <div className="my-2">
           <h2>Our Products:</h2>
@@ -145,15 +150,15 @@ function ProductList() {
           {products.length ? (
             <div className="flex-row">
               {/* {filterProducts().map((product) => ( */}
-              {products.map((product) => (
+              {pizzas.map((pizza) => (
                 <ProductItem
-                    key={product._id}
-                    _id={product._id}
+                    key={pizza._id}
+                    _id={pizza._id}
                     //image={product.image}
                     image={logo}
-                    name={product.name}
-                    price={product.price}
-                    quantity={product.quantity}
+                    name={pizza.name}
+                    price={pizza.price}
+                    quantity={pizza.quantity}
                 />
               ))}
             </div>
