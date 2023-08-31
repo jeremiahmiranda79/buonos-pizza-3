@@ -5,18 +5,13 @@ const { model, Schema } = mongoose;
 const toppingsSchema = new Schema({
   toppingName: {
     type: String,
-    required: true,
+    required: false,
     trim: true
   },
   toppingPrice: {
     type: Number,
     required: false,
     min: 0.99
-  },
-  availability: {
-    type: Number,
-    min: 0,
-    default: 0
   }
 });
 

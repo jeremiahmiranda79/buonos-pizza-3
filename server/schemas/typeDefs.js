@@ -26,6 +26,11 @@ module.exports = gql`
     quantity: Int
   }
 
+  type Toppings {
+    toppingName: String
+    toppingPrice: Float
+  }
+
   type Checkout {
     session: ID
   }
@@ -41,6 +46,7 @@ module.exports = gql`
     order(_id: ID!): Order
     pizzas(order: ID): [Pizza]
     pizza(_id: ID!): Pizza
+    topping(_id: ID!): Toppings
   }
 
   type Mutation {
@@ -62,6 +68,11 @@ module.exports = gql`
       pizzaPrice: Float!
     ): Pizza
     
+    addTopping(
+      toppingName: String
+      toppingPrice: Float
+    ): Toppings
+
     addOrder(pizzas: [ID], customer: ID!): Order
   }
 `;
