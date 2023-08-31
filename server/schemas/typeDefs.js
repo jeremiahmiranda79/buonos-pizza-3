@@ -27,6 +27,7 @@ module.exports = gql`
   }
 
   type Toppings {
+    _id: ID!
     toppingName: String
     toppingPrice: Float
   }
@@ -47,6 +48,7 @@ module.exports = gql`
     pizzas(order: ID): [Pizza]
     pizza(_id: ID!): Pizza
     topping(_id: ID!): Toppings
+    toppings: [Toppings]
   }
 
   type Mutation {

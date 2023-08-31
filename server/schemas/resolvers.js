@@ -17,7 +17,10 @@ module.exports = {
       return await Pizza.findOne({ _id });
     },
     topping: async (_, { _id }) => {
-      return await Toppings.findOne({ _id });
+      return await Toppings.findById( _id );
+    },
+    toppings: async () => {
+      return await Toppings.find();
     },
     order: async (_, args) => {
       return await Order.findById(args).populate('pizzas').populate('customer');
