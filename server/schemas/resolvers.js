@@ -1,4 +1,4 @@
-const { Customer, Pizza, Order } = require("../model");
+const { Customer, Pizza, Order, Toppings } = require("../model");
 const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 
 // Look at documentation for error handling on Apollo
@@ -15,6 +15,9 @@ module.exports = {
     },
     pizza: async (_, { _id }) => {
       return await Pizza.findOne({ _id });
+    },
+    topping: async (_, { _id }) => {
+      return await Toppings.findOne({ _id });
     },
     order: async (_, args) => {
       return await Order.findById(args).populate('pizzas').populate('customer');
@@ -69,6 +72,9 @@ module.exports = {
     },
     addPizza: async (_, args) => {
       return await Pizza.create(args);
+    },
+    addTopping: async (_, args) => {
+      return await Toppings.create(args);
     },
     login: async (parent, { email, password }) => {
       const customer = await Customer.findOne({ email });
