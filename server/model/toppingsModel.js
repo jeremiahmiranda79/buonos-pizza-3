@@ -15,6 +15,6 @@ const toppingsSchema = new Schema({
   }
 });
 
-const Toppings = mongoose.model("Toppings", toppingsSchema);
+const Toppings = model("Toppings", toppingsSchema);
 
 module.exports = Toppings;
