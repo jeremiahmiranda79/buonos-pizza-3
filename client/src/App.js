@@ -1,8 +1,5 @@
 import React, { useState } from "react";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import Page from "./Page";
-import { loadErrorMessages, loadDevMessages } from "@apollo/client/dev";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {
   ApolloClient,
   InMemoryCache,
@@ -10,6 +7,19 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
+
+// import About from './Page/About';
+// import Contact from './Page/Contact';
+import Details from './Page/Details';
+import Home from './Page/Home';
+import Login from './Page/Login';
+import Menu from './Page/Menu';
+import NoMatch from './Page/NoMatch';
+import RegisterAccount from './Page/RegisterAccount';
+// import Team from './Page/Team';
+
+import Nav from './components/Nav';
+
 import { StoreProvider } from "./utils/GlobalState";
 
 const httpLink = createHttpLink({
@@ -31,26 +41,50 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-const pages = ['home', 'menu', 'about', 'team', 'login', 'contact', 'register-account', 'details'];
-
 function App() {
-  const [currentPage, setCurrentPage] = useState("home");
-
   return (
     <ApolloProvider client={client}>
-      <StoreProvider >
-        <div className="wrapper">
-          <Header
-            pages={pages}
-            currentPage={currentPage}
-            setCurrentPage={setCurrentPage}
-          />;
-          <main>
-            <Page currentPage={currentPage} />
-          </main>
-          <Footer />
+      <Router>
+        <div>
+          <StoreProvider>
+            <Nav/>
+            <Routes>
+              <Route
+                path="/"
+                element={<Home />}
+              />
+
+              <Route 
+                path="/login" 
+                element={<Login />} 
+              />
+
+              <Route 
+                path="/register-account" 
+                element={<RegisterAccount />} 
+              />
+
+              <Route 
+                path="/menu" 
+                element={<Menu />} 
+              />
+
+              <Route 
+                path="/details" 
+                element={<Details />} 
+              />
+
+
+
+              <Route 
+                path="*" 
+                element={<NoMatch />} 
+              />
+              
+            </Routes>
+          </StoreProvider>
         </div>
-      </StoreProvider>
+      </Router>
     </ApolloProvider>
   );
 }
