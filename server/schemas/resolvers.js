@@ -4,6 +4,11 @@ const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 // Look at documentation for error handling on Apollo
 module.exports = {
   Query: {
+
+    // categories: async () => {
+    //   return await Category.find();
+    // },
+
     customers: async () => {
       return await Customer.find({});
     },
