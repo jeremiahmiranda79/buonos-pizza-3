@@ -22,4 +22,3 @@ const googleAutoAddress = () => {
   );
 };
 export default googleAutoAddress;
-// ReactDOM.render(<App />, document.getElementById("root"));
