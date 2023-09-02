@@ -2,7 +2,41 @@ import React from 'react';
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
 
+import logo from '../../assets/bunos-background-transparent.png';
+
 function Nav() {
+  function showNavigation1() {
+    return (
+      <ul className="flex-row">
+        <li className="mx-1">
+          <Link to="/">
+            Home
+          </Link>
+        </li>
+        <li className="mx-1">
+          <Link to="/menu">
+            Menu
+          </Link>
+        </li>
+        <li className="mx-1">
+          <Link to="/about">
+            About
+          </Link>
+        </li>
+        <li className="mx-1">
+          <Link to="/team">
+            Team
+          </Link>
+        </li>
+        <li className="mx-1">
+          <Link to="/contact">
+            Contact
+          </Link>
+        </li>
+      </ul>
+    )
+  }
+
   function showNavigation() {
     if (Auth.loggedIn()) {
       return (
@@ -40,16 +74,18 @@ function Nav() {
 
   return (
     <header className="flex-row px-1">
-      <h1>
-        <Link to="/">
-          <span role="img" aria-label="shopping bag">🛍️</span>
-          -Shop-Shop
-        </Link>
-      </h1>
 
+      <img className="header-logo" src={logo}/>
+
+      <h1>Buono's Pizza Gilbert</h1>
       <nav>
         {showNavigation()}
       </nav>
+
+      <nav>
+        {showNavigation1()}  
+      </nav>
+
     </header>
   );
 }

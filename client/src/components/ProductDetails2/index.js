@@ -1,57 +1,59 @@
 import React, { useState, useEffect } from "react";
 import { toppings, sizes } from "../../utils/toppings";
 import { Link, useParams } from 'react-router-dom';
-// import { useQuery } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 // import Cart from '../Cart';
 
-// import { useStoreContext } from '../../utils/GlobalState';
-// import {
+ import { useStoreContext } from '../../utils/GlobalState';
+ import {
 //   REMOVE_FROM_CART,
 //   UPDATE_CART_QUANTITY,
 //   ADD_TO_CART,
-//   UPDATE_PRODUCTS,
-// } from '../utils/actions';
-// import { QUERY_PRODUCTS } from '../utils/queries';
+   UPDATE_PIZZAS,
+} from '../../utils/actions';
+import { QUERY_PIZZAS } from '../../utils/queries';
 // import { idbPromise } from '../utils/helpers';
 // import spinner from '../assets/spinner.gif';
 
 const getFormattedPrice = (price) => `$${price.toFixed(2)}`;
 
 export default function ProductDetails() {
-  // const [state, dispatch] = useStoreContext();
-  // const { id } = useParams();
+  const [state, dispatch] = useStoreContext();
+  const { id } = useParams();
 
-  // const [currentProduct, setCurrentProduct] = useState({});
+  const [currentPizza, setCurrentPizza] = useState({});
 
-  // const { loading, data } = useQuery(QUERY_PRODUCTS);
-  // const { products, cart } = state;
+  const { loading, data } = useQuery(QUERY_PIZZAS);
+  const { pizzas } = state;
 
-  // useEffect(() => {
-  //   // already in global store
-  //   if (products.length) {
-  //     setCurrentProduct(products.find((product) => product._id === id));
-  //   }
-  //   // retrieved from server
-  //   else if (data) {
-  //     dispatch({
-  //       type: UPDATE_PRODUCTS,
-  //       products: data.products,
-  //     });
+  useEffect(() => {
+    // already in global store
+    if (pizzas.length) {
+      setCurrentPizza(pizzas.find((pizza) => pizza._id === id));
+    }
+    // retrieved from server
+    else if (data) {
+      dispatch({
+        type: UPDATE_PIZZAS,
+        pizzas: data.pizzas,
+      });
 
-  //     data.products.forEach((product) => {
-  //       idbPromise('products', 'put', product);
-  //     });
-  //   }
-  //   // get cache from idb
-  //   else if (!loading) {
-  //     idbPromise('products', 'get').then((indexedProducts) => {
-  //       dispatch({
-  //         type: UPDATE_PRODUCTS,
-  //         products: indexedProducts,
-  //       });
-  //     });
-  //   }
-  // }, [products, data, loading, dispatch, id]);
+      // data.pizzas.forEach((pizza) => {
+      //   idbPromise('pizzas', 'put', pizza);
+      // });
+    }
+    // get cache from idb
+    // else if (!loading) {
+    //   idbPromise('products', 'get').then((indexedProducts) => {
+    //     dispatch({
+    //       type: UPDATE_PRODUCTS,
+    //       products: indexedProducts,
+    //     });
+    //   });
+    // }
+  }, [pizzas, data, loading, dispatch, id]);
+
+  /////////////////////////////////////
 
   const [checkedState, setCheckedState] = useState(
     new Array(toppings.length).fill(false)
@@ -126,7 +128,35 @@ export default function ProductDetails() {
   };
 
   return (
-    <div className="">
+    <>
+      {currentPizza ? (
+         <div className="container my-1">
+         <Link to="/menu">← Back to Products</Link>
+
+         <h2>{currentPizza.pizzaName}</h2>
+
+         <p>{currentPizza.pizzaDescription}</p>
+
+         <p>
+           <strong>Price:</strong>${currentPizza.pizzaPrice}{' '}
+           {/* <button onClick={addToCart}>Add to Cart</button>
+           <button
+             disabled={!cart.find((p) => p._id === currentPizza._id)}
+             onClick={removeFromCart}
+           >
+             Remove from Cart
+           </button> */}
+         </p>
+
+         {/* <img
+           src={`/images/${currentProduct.image}`}
+           alt={currentPizza.name}
+         /> */}
+       </div>
+      ) : null}
+      {/* {loading ? <img src={spinner} alt="loading" /> : null}
+      <Cart /> */}
+      <div className="">
       <h3>Select Toppings</h3>
       <ul className="">
         {sizes.map(({ name, price }) => (
@@ -196,6 +226,11 @@ export default function ProductDetails() {
       </div>
 
     </div>
+    </>
+
+
+
+    
 
     
   );
