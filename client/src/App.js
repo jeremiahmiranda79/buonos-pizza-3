@@ -56,32 +56,26 @@ function App() {
                 path="/"
                 element={<Home />}
               />
-
               <Route 
                 path="/login" 
                 element={<Login />} 
               />
-
               <Route 
                 path="/register-account" 
                 element={<RegisterAccount />} 
               />
-
               <Route 
                 path="/menu" 
                 element={<Menu />} 
               />
-
               <Route 
                 path="/products/:id" 
                 element={<Details />} 
               />
-
               <Route 
                 path="*" 
                 element={<NoMatch />} 
               />
-              
             </Routes>
           </StoreProvider>
           <Footer />
