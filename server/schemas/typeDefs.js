@@ -24,6 +24,7 @@ module.exports = gql`
     foodImage: String
     pizzaPrice: Float
     quantity: Int
+    toppings: [Toppings]
   }
 
   type Toppings {
@@ -68,12 +69,10 @@ module.exports = gql`
       foodImage: String
       quantity: Int!
       pizzaPrice: Float!
+      toppings: [ID]
     ): Pizza
-    
-    addTopping(
-      toppingName: String
-      toppingPrice: Float
-    ): Toppings
+
+    addTopping(toppingName: String, toppingPrice: Float): Toppings
 
     addOrder(pizzas: [ID], customer: ID!): Order
   }
