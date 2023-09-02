@@ -19,6 +19,8 @@ import RegisterAccount from './Page/RegisterAccount';
 // import Team from './Page/Team';
 
 import Nav from './components/Nav';
+// import Header from './components/Header';
+import Footer from './components/Footer';
 
 import { StoreProvider } from "./utils/GlobalState";
 
@@ -46,6 +48,7 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div>
+          {/* <Header> */}
           <StoreProvider>
             <Nav/>
             <Routes>
@@ -70,11 +73,9 @@ function App() {
               />
 
               <Route 
-                path="/details" 
+                path="/products/:id" 
                 element={<Details />} 
               />
-
-
 
               <Route 
                 path="*" 
@@ -83,6 +84,7 @@ function App() {
               
             </Routes>
           </StoreProvider>
+          <Footer />
         </div>
       </Router>
     </ApolloProvider>
