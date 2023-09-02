@@ -103,7 +103,7 @@ header .header-logo {
 
 footer {
     position: absolute; 
-    position: fixed; 
+    /* position: fixed;  */
     bottom: 0 !important; 
     width: 100%;
     height: auto;

@@ -152,11 +152,8 @@ export default function ProductDetails() {
            src={`/images/${currentProduct.image}`}
            alt={currentPizza.name}
          /> */}
-       </div>
-      ) : null}
-      {/* {loading ? <img src={spinner} alt="loading" /> : null}
-      <Cart /> */}
-      <div className="">
+
+<div className="">
       <h3>Select Toppings</h3>
       <ul className="">
         {sizes.map(({ name, price }) => (
@@ -226,6 +223,13 @@ export default function ProductDetails() {
       </div>
 
     </div>
+       </div>
+
+       
+      ) : null}
+      {/* {loading ? <img src={spinner} alt="loading" /> : null}
+      <Cart /> */}
+      
     </>
 
 
