@@ -1,5 +1,5 @@
 require('dotenv').config()
-console.log(process.env.PORT)
+
 const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 const { resolvers, typeDefs } = require('./schemas')

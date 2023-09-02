@@ -1,26 +1,10 @@
 const db = require("./connection");
-const { Customer, Pizza } = require("../model");
+const { Customer, Pizza, Toppings } = require("../model");
 
 db.once("open", async () => {
   await Pizza.deleteMany();
 
   const pizza = await Pizza.insertMany([
-    {
-      pizzaName: "Pepperoni",
-      pizzaType: "Pepperoni",
-      pizzaSize: "Medium",
-      foodImage: "img.url",
-      pizzaPrice: 20.99,
-      quantity: 20,
-    },
-    {
-      pizzaName: "Cheese",
-      pizzaType: "Cheese",
-      pizzaSize: "Medium",
-      foodImage: "img.url",
-      pizzaPrice: 20.99,
-      quantity: 20,
-    },
     {
       pizzaName: "Cheese",
       pizzaType: "Hand Tossed",
@@ -130,6 +114,97 @@ db.once("open", async () => {
   });
 
   console.log("users seeded");
+
+  await Toppings.deleteMany();
+
+  const toppings = await Toppings.insertMany([
+    {
+      toppingName: "Add Chicken",
+      toppingPrice: 2.00,
+    },
+    {
+      toppingName: "Extra Cheese",
+      toppingPrice: 1.00,
+    },
+    {
+      toppingName: "Pepperoni",
+      toppingPrice: 1.50,
+    },
+    {
+      toppingName: "Mushrooms",
+      toppingPrice: 1.50,
+    },
+    {
+      toppingName: "Onions",
+      toppingPrice: 1.50,
+    },
+    {
+      toppingName: "Real Black Olives",
+      toppingPrice: 1.50,
+    },
+    {
+      toppingName: "Marinated Bell Peppers",
+      toppingPrice: 1.50,
+    },
+    {
+      toppingName: "Jalapenos",
+      toppingPrice: 1.50,
+    },
+    {
+      toppingName: "Broccoli",
+      toppingPrice: 1.50,
+    },
+    {
+      toppingName: "Meatballs",
+      toppingPrice: 2.00,
+    },
+    {
+      toppingName: "Ham",
+      toppingPrice: 2.00,
+    },
+    {
+      toppingName: "Anchovies",
+      toppingPrice: 2.00,
+    },
+    {
+      toppingName: "Pineapple",
+      toppingPrice: 1.50,
+    },
+    {
+      toppingName: "Garlic",
+      toppingPrice: 1.50,
+    },
+    {
+      toppingName: "Bacon",
+      toppingPrice: 2.00,
+    },
+    {
+      toppingName: "Tomatoes",
+      toppingPrice: 1.50,
+    },
+    {
+      toppingName: "Spinach",
+      toppingPrice: 1.50,
+    },
+    {
+      toppingName: "Pepperoncinis",
+      toppingPrice: 1.50,
+    },
+    {
+      toppingName: "Banana Peppers",
+      toppingPrice: 1.50,
+    },
+    {
+      toppingName: "Roasted Red Peppers",
+      toppingPrice: 1.50,
+    },
+    {
+      toppingName: "Basil Puree",
+      toppingPrice: 1.50,
+    },
+  ]);
+
+  console.log("toppings seeded");
 
   process.exit();
 });
