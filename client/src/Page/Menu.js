@@ -4,9 +4,11 @@ import CategoryMenu from "../components/CategoryMenu";
 
 const Menu = () => {
   return (
-    <div className="container">
-      {<CategoryMenu />}
-      {<ProductList />}
+    <div className="menu">
+      <div className="container">
+        {<CategoryMenu />}
+        {<ProductList />}
+      </div>
     </div>
   );
 };

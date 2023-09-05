@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "../LoginForm/index.css";
 import { useMutation } from "@apollo/client";
 import { Link } from "react-router-dom";
 import { LOGIN } from "../../utils/mutation";
@@ -31,7 +30,8 @@ function LoginForm(props) {
   };
 
   return (
-    <div className="container my-1">
+    <center>
+      <div className="container my-1">
       <Link to="/signup">← Go to Signup</Link>
 
       <h2>Login</h2>
@@ -66,6 +66,8 @@ function LoginForm(props) {
         </div>
       </form>
     </div>
+   </center>
+    
   );
 }
 
