@@ -1,39 +1,7 @@
 const { gql } = require("apollo-server-express");
 
 module.exports = gql`
-enum SizeEnum {
-  Small
-  Medium
-  Large
-}  
-
-enum PizzaName {
-  Supreme
-  Meatlover
-  VeggieLover
-  Pepperoni
-  Cheeeeesssy
-  Margherita
-}
-
-enum PizzaType {
-  Sicilian
-  Thin
-  GlutenFree
-  Cauliflower
-}
-
-enum PizzaTopppings {
-  Pepperoni
-  Ham
-  Sausage
-  Onions
-  BlackOlives
-  GreenPeppers
-  Cheese
-}
-
-type Customer {
+  type Customer {
     _id: ID!
     firstName: String
     lastName: String
@@ -50,11 +18,10 @@ type Customer {
 
   type Pizza {
     _id: ID!
-    pizzaName: [PizzaName]
-    pizzaType: [PizzaType]
-    pizzaSize: [SizeEnum]
+    pizzaName: String
+    pizzaType: String
+    pizzaSize: String
     foodImage: String
-    pizzaToppings: [Toppings]
     pizzaPrice: Float
     quantity: Int
     toppings: [Toppings]
@@ -62,7 +29,7 @@ type Customer {
 
   type Toppings {
     _id: ID!
-    toppingName: [PizzaTopppings]
+    toppingName: String
     toppingPrice: Float
   }
 
@@ -96,18 +63,17 @@ type Customer {
     login(email: String!, password: String!): Auth
 
     addPizza(
-      pizzaName: [PizzaName!]
-      pizzaType: [PizzaType!]
-      pizzaSize: [SizeEnum!]
+      pizzaName: String!
+      pizzaType: String!
+      pizzaSize: String!
       foodImage: String
-      pizzaToppings: [Toppings]
       quantity: Int!
       pizzaPrice: Float!
       toppings: [ID]
     ): Pizza
     
     addTopping(
-      toppingName: [PizzaTopppings]
+      toppingName: String
       toppingPrice: Float
     ): Toppings
 
