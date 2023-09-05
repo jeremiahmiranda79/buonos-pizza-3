@@ -15,22 +15,46 @@ export const LOGIN = gql`
   }
 `;
 
+// export const ADD_USER = gql`
+//   mutation addUser(
+//     $firstName: String!
+//     $lastName: String!
+//     $email: String!
+//     $password: String!
+//   ) {
+//     addUser(
+//       firstName: $firstName
+//       lastName: $lastName
+//       email: $email
+//       password: $password
+//     ) {
+//       token
+//       user {
+//         _id
+//       }
+//     }
+//   }
+// `;
 export const ADD_USER = gql`
-  mutation addUser(
+  mutation addCustomer(
     $firstName: String!
     $lastName: String!
-    $email: String!
     $password: String!
+    $email: String!
   ) {
-    addUser(
+    addCustomer(
       firstName: $firstName
       lastName: $lastName
-      email: $email
       password: $password
+      email: $email
     ) {
       token
-      user {
+      customer {
         _id
+        email
+        firstName
+        lastName
+        password
       }
     }
   }

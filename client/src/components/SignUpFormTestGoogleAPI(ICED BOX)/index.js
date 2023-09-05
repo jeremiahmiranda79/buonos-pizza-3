@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import { Form, Button } from "react-bootstrap";
 import { GoogleApiWrapper } from "google-maps-react";
 import "./index.css";
+import { Link } from "react-router-dom";
+import { ADD_USER } from "../../utils/mutation";
+import Auth from "../../utils/auth";
+import { useMutation } from "@apollo/client";
 
 class AddressForm extends Component {
   constructor(props) {
@@ -47,7 +51,7 @@ class AddressForm extends Component {
   render() {
     return (
       <div className="scroll">
-        <Form>
+        <Form onSubmit={handleFormSubmit}>
           <Form.Group controlId="firstName">
             <Form.Label>First Name</Form.Label>
             <input
