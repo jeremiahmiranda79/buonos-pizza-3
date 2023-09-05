@@ -74,18 +74,14 @@ function Nav() {
 
   return (
     <header className="flex-row px-1">
-
       <img className="header-logo" src={logo}/>
-
       <h1>Buono's Pizza Gilbert</h1>
-      <nav>
-        {showNavigation()}
+      <nav className='header-links-1'>
+        {showNavigation()} 
       </nav>
-
-      <nav>
+      <nav className='header-links-2'>
         {showNavigation1()}  
-      </nav>
-
+      </nav>   
     </header>
   );
 }
