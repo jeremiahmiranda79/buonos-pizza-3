@@ -57,6 +57,7 @@ type Customer {
     pizzaToppings: [Toppings]
     pizzaPrice: Float
     quantity: Int
+    toppings: [Toppings]
   }
 
   type Toppings {
@@ -102,6 +103,7 @@ type Customer {
       pizzaToppings: [Toppings]
       quantity: Int!
       pizzaPrice: Float!
+      toppings: [ID]
     ): Pizza
     
     addTopping(

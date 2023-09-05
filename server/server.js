@@ -1,13 +1,13 @@
-require('dotenv').config()
-console.log(process.env.PORT)
+
 const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 const { resolvers, typeDefs } = require('./schemas')
 const db = require('./config/connection')
 const path = require('path');
+require("dotenv").config();
 
 // Express app
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3002;
 const app = express();
 
 const server = new ApolloServer({
@@ -42,7 +42,7 @@ const startApolloServer = async ( ) => {
       console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
     })
   })
-  };
+};
   
 // Call the async function to start the server
-  startApolloServer( );
+startApolloServer( );

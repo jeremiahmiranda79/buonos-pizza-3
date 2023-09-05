@@ -54,6 +54,11 @@ const pizzaSchema = new Schema({
     min: 0,
     default: 0,
   },
+  toppings: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Toppings',
+    required: false
+  }],
 });
 
 const Pizza = mongoose.model("Pizza", pizzaSchema);
