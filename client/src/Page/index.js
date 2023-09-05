@@ -6,6 +6,7 @@ import Team from "./Team";
 import Login from "./Login";
 import RegisterAccount from "./RegisterAccount";
 import Contact from "./Contact";
+import slider from "./Slider";
 import { capitalize } from '../utils';
 
 const Page = ({ currentPage }) => {
