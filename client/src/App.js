@@ -1,39 +1,39 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
   createHttpLink,
-} from '@apollo/client';
-import { setContext } from '@apollo/client/link/context';
+} from "@apollo/client";
+import { setContext } from "@apollo/client/link/context";
 
 // import About from './Page/About';
 // import Contact from './Page/Contact';
-import Details from './Page/Details';
-import Home from './Page/Home';
-import Login from './Page/Login';
-import Menu from './Page/Menu';
-import NoMatch from './Page/NoMatch';
-import RegisterAccount from './Page/RegisterAccount';
+import Details from "./Page/Details";
+import Home from "./Page/Home";
+import Login from "./Page/Login";
+import Menu from "./Page/Menu";
+import NoMatch from "./Page/NoMatch";
+import RegisterAccount from "./Page/RegisterAccount";
 // import Team from './Page/Team';
 
-import Nav from './components/Nav';
+import Nav from "./components/Nav";
 // import Header from './components/Header';
-import Footer from './components/Footer';
+import Footer from "./components/Footer";
 
 import { StoreProvider } from "./utils/GlobalState";
 
 const httpLink = createHttpLink({
-  uri: '/graphql',
+  uri: "/graphql",
 });
 
 const authLink = setContext((_, { headers }) => {
-  const token = localStorage.getItem('id_token');
+  const token = localStorage.getItem("id_token");
   return {
     headers: {
       ...headers,
-      authorization: token ? `Bearer ${token}` : '',
+      authorization: token ? `Bearer ${token}` : "",
     },
   };
 });
@@ -50,35 +50,17 @@ function App() {
         <div>
           {/* <Header> */}
           <StoreProvider>
-            <Nav/>
+            <Nav />
             <Routes>
-              <Route
-                path="/"
-                element={<Home />}
-              />
-              <Route 
-                path="/login" 
-                element={<Login />} 
-              />
-              <Route 
-                path="/register-account" 
-                element={<RegisterAccount />} 
-              />
-              <Route 
-                path="/menu" 
-                element={<Menu />} 
-              />
-              <Route 
-                path="/products/:id" 
-                element={<Details />} 
-              />
-              <Route 
-                path="*" 
-                element={<NoMatch />} 
-              />
+              <Route path="/" element={<Home />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<RegisterAccount />} />
+              <Route path="/menu" element={<Menu />} />
+              <Route path="/products/:id" element={<Details />} />
+              <Route path="*" element={<NoMatch />} />
             </Routes>
           </StoreProvider>
-          <Footer />
+          {/* <Footer /> */}
         </div>
       </Router>
     </ApolloProvider>
