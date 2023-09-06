@@ -1,4 +1,3 @@
-// import React from "react";
 import React, { useState, useRef } from 'react';
 import emailjs from '@emailjs/browser';
 const Contact = () => {
