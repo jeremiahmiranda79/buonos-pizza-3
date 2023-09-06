@@ -1,6 +1,7 @@
 import React from "react";
 import AddressForm from "../components/SignUpFormTest";
 // import { GoogleApiWrapper } from ".";
+
 const googleAutoAddress = () => {
   return (
     <div className="container fluid">
@@ -9,4 +10,5 @@ const googleAutoAddress = () => {
     </div>
   );
 };
+
 export default googleAutoAddress;
