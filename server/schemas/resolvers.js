@@ -6,11 +6,6 @@ const { signToken } = require('../utils/Auth');
 // Look at documentation for error handling on Apollo
 module.exports = {
   Query: {
-
-    // categories: async () => {
-    //   return await Category.find();
-    // },
-
     customers: async () => {
       return await Customer.find({});
     },
