@@ -1,0 +1,14 @@
+[
+  {
+    "image": "./Page/assets/s1.jpg",
+    "title": "Daily Lunch Specials 11 am - 4 pm",
+    "subTitle": "2 slices of cheese pizza & 20 oz fountain drink, 1 slice cheese pizza and small house salad & 20 oz fountain drink, 6 inch cold sub, french fries & 20 oz fountain drink",
+    "interval": 1500
+},
+  {
+    "image": "./assests/s2.jpg",
+    "title": "This is an all day special",
+    "subTitle": "Large 16 inch 1 Topping pizza & 10 wings $29.99 + tax additional toppings $2.75 each",
+    "interval": 500
+  }
+]

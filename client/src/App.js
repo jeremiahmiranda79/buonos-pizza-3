@@ -8,18 +8,16 @@ import {
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 
-// import About from './Page/About';
-// import Contact from './Page/Contact';
 import Details from "./Page/Details";
 import Home from "./Page/Home";
 import Login from "./Page/Login";
 import Menu from "./Page/Menu";
 import NoMatch from "./Page/NoMatch";
 import RegisterAccount from "./Page/RegisterAccount";
-// import Team from './Page/Team';
+import About from "./Page/About";
+import Contact from "./Page/Contact";
 
 import Nav from "./components/Nav";
-// import Header from './components/Header';
 import Footer from "./components/Footer";
 
 import { StoreProvider } from "./utils/GlobalState";
@@ -55,7 +53,9 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<RegisterAccount />} />
               <Route path="/menu" element={<Menu />} />
+              <Route path="/about" element={<About/>} />
               <Route path="/products/:id" element={<Details />} />
+              <Route path="/contact" element={<Contact />} />
               <Route path="*" element={<NoMatch />} />
             </Routes>
           </StoreProvider>
@@ -67,8 +67,3 @@ function App() {
 }
 
 export default App;
-
-// if (process.env.NODE_ENV !== "production") {  // Adds messages only in a dev environment
-//   loadDevMessages();
-//   loadErrorMessages();
-// }

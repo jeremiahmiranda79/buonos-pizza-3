@@ -107,7 +107,6 @@ export default function ProductDetails() {
                   </>
                 ))}
               </ul>
-
               <ul className="">
                 {toppings.map(({ name, price }, index) => {
                   return (
@@ -129,7 +128,6 @@ export default function ProductDetails() {
                     </li>
                   );
                 })}
-
                 <li>
                   <div className="">
                     <div className="">
@@ -140,16 +138,13 @@ export default function ProductDetails() {
                   </div>
                 </li>
               </ul>
-
               <div>
                 <p>
                   <strong>Price:</strong>{getFormattedPrice(total * count)}{' '}
                   <button onClick={addToCart}>Add to Cart</button>   
                 </p>
               </div>
-
             </div>
-
             </div>
           </center>
         </div>

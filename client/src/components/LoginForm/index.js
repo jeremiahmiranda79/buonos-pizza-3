@@ -33,7 +33,6 @@ function LoginForm(props) {
     <center>
       <div className="container my-1">
       <Link to="/signup">← Go to Signup</Link>
-
       <h2>Login</h2>
       <form onSubmit={handleFormSubmit}>
         <div className="flex-row space-between my-2">

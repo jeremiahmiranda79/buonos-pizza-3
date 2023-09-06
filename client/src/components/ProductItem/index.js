@@ -1,14 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { pluralize } from "../../utils/index";
-import { useStoreContext } from "../../utils/GlobalState";
-import { UPDATE_PIZZAS } from '../../utils/actions';
 import logo from '../../assets/bunos-background-transparent.png'
 
 function ProductItem(item) {
-  const [state, dispatch] = useStoreContext();
   const {
-      image,
       name,
       _id,
       price,
