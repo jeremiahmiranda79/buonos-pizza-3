@@ -76,8 +76,6 @@ export default function ProductDetails() {
 
   const addToCart = () => {};
 
-  const removeFromCart = () => {};
-
   return (
     <>
       {currentPizza ? (
@@ -86,10 +84,6 @@ export default function ProductDetails() {
             <div className="container my-1">
               <Link to="/menu">← Back to Products</Link>
               <h2>{currentPizza.pizzaName}</h2>
-              {/* <p>{currentPizza.pizzaDescription}</p> */}
-              {/* <p>
-                <strong>Price:</strong>${currentPizza.pizzaPrice}{' '}
-              </p> */}
               <div className="">
               <h3>Select Toppings</h3>
               <ul className="">

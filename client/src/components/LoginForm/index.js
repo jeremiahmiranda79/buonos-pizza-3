@@ -66,7 +66,6 @@ function LoginForm(props) {
       </form>
     </div>
    </center>
-    
   );
 }
 
