@@ -73,6 +73,7 @@ const Contact = () => {
                     name="message"
                     className="form-control"
                     rows="3"
+                    placeholder="Enter message"
                     defaultValue={formState.message}
                     onChange={handleChange}
                     ></textarea>

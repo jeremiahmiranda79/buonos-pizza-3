@@ -281,26 +281,31 @@ input:focus {
 }
 
 .contact .container {
+    font-weight: bold;
+    text-align: left;
+    text-justify: left;
     width: 45%;
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
     padding-top: 20px;
     padding-bottom: 20px;
-    background-color: #fafafa;
+    background-color: #343131;
     position: relative;
     top: 20%;
     transform: translateY(15%);
-    opacity: .93;
+    opacity: .75;
     border-radius: 15px;
-    background-color: #272f32;
 }
 
 .contact {
     height: 100vh;
-    background-image: url(./assets/place.png);
+    font-weight: bold;
+    text-align: left;
+    background-image: url(./assets/background.jpg);
     background-repeat:no-repeat;
     background-size: cover;
+    background-position: center center;
 }
 
 .about {
@@ -313,6 +318,18 @@ input:focus {
     height: 100vh;
 }
 
+.about h1 {
+    font-weight: bold;
+    text-align: left;
+    width: 50%;
+    padding-bottom: 20px;
+    text-shadow:
+    -1.5px -1.5px 0 #0f5606,
+    1.5px -1.5px 0 #0f5606,
+    -1.5px 1.5px 0 #0f5606,
+    1.5px 1.5px 0 #0f5606;
+}
+
 .about .caption {
     flex: 1;
     padding: 20px;
@@ -321,6 +338,13 @@ input:focus {
 
 .about p {
     text-align: left;
+    width: 50%;
+    font-size: 28px;
+    text-shadow:
+    -1.5px -1.5px 0 #e80b0b,
+    1.5px -1.5px 0 #e80b0b,
+    -1.5px 1.5px 0 #e80b0b,
+    1.5px 1.5px 0 #e80b0b;
 }
 
 .flex-row {
