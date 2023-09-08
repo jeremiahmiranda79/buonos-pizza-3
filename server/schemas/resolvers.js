@@ -1,16 +1,11 @@
 const { Customer, Pizza, Order, Toppings } = require("../model");
 const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 const { AuthenticationError } = require('apollo-server-express');
-const { signToken } = require('../utils/Auth');
+// const { signToken } = require('../utils/Auth');
 
 // Look at documentation for error handling on Apollo
 module.exports = {
   Query: {
-
-    // categories: async () => {
-    //   return await Category.find();
-    // },
-
     customers: async () => {
       return await Customer.find({});
     },
@@ -52,13 +47,17 @@ module.exports = {
     },
     login: async (parent, { email, password }) => {
       const customer = await Customer.findOne({ email });
+
       if (!customer) {
         throw new AuthenticationError("Incorrect credentials");
       }
+
       const correctPw = await customer.isCorrectPassword(password);
+
       if (!correctPw) {
         throw new AuthenticationError("Incorrect credentials");
       }
+
       const token = signToken(customer);
       return { token, customer };
     },

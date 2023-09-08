@@ -2,27 +2,18 @@ import React, { useState, useEffect } from "react";
 import { toppings, sizes } from "../../utils/toppings";
 import { Link, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-// import Cart from '../Cart';
-
- import { useStoreContext } from '../../utils/GlobalState';
- import {
-//   REMOVE_FROM_CART,
-//   UPDATE_CART_QUANTITY,
-//   ADD_TO_CART,
+import { useStoreContext } from '../../utils/GlobalState';
+import {
    UPDATE_PIZZAS,
 } from '../../utils/actions';
 import { QUERY_PIZZAS } from '../../utils/queries';
-// import { idbPromise } from '../utils/helpers';
-// import spinner from '../assets/spinner.gif';
 
 const getFormattedPrice = (price) => `$${price.toFixed(2)}`;
 
 export default function ProductDetails() {
   const [state, dispatch] = useStoreContext();
   const { id } = useParams();
-
   const [currentPizza, setCurrentPizza] = useState({});
-
   const { loading, data } = useQuery(QUERY_PIZZAS);
   const { pizzas } = state;
 
@@ -37,20 +28,7 @@ export default function ProductDetails() {
         type: UPDATE_PIZZAS,
         pizzas: data.pizzas,
       });
-
-      // data.pizzas.forEach((pizza) => {
-      //   idbPromise('pizzas', 'put', pizza);
-      // });
     }
-    // get cache from idb
-    // else if (!loading) {
-    //   idbPromise('products', 'get').then((indexedProducts) => {
-    //     dispatch({
-    //       type: UPDATE_PRODUCTS,
-    //       products: indexedProducts,
-    //     });
-    //   });
-    // }
   }, [pizzas, data, loading, dispatch, id]);
 
   /////////////////////////////////////
@@ -71,7 +49,7 @@ export default function ProductDetails() {
   const handleOnChange = (position) => {
     const updatedCheckedState = checkedState.map((item, index) =>
       index === position ? !item : item
-    ); // how does this work?
+    );
 
     setCheckedState(updatedCheckedState);
 
@@ -82,7 +60,6 @@ export default function ProductDetails() {
         }
         return sum;
       },
-      0 // what is this doing? 
     );
 
     setAddonPrice(totalToppingPrice);
@@ -97,145 +74,75 @@ export default function ProductDetails() {
     setCount(count - 1);
   };
 
-  const addToCart = () => {
-    // const itemInCart = cart.find((cartItem) => cartItem._id === id);
-    // if (itemInCart) {
-    //   dispatch({
-    //     type: UPDATE_CART_QUANTITY,
-    //     _id: id,
-    //     purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
-    //   });
-    //   idbPromise('cart', 'put', {
-    //     ...itemInCart,
-    //     purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
-    //   });
-    // } else {
-    //   dispatch({
-    //     type: ADD_TO_CART,
-    //     product: { ...currentProduct, purchaseQuantity: 1 },
-    //   });
-    //   idbPromise('cart', 'put', { ...currentProduct, purchaseQuantity: 1 });
-    // }
-  };
-
-  const removeFromCart = () => {
-    // dispatch({
-    //   type: REMOVE_FROM_CART,
-    //   _id: currentProduct._id,
-    // });
-
-    // idbPromise('cart', 'delete', { ...currentProduct });
-  };
+  const addToCart = () => {};
 
   return (
     <>
       {currentPizza ? (
-         <div className="container my-1">
-         <Link to="/menu">← Back to Products</Link>
-
-         <h2>{currentPizza.pizzaName}</h2>
-
-         <p>{currentPizza.pizzaDescription}</p>
-
-         <p>
-           <strong>Price:</strong>${currentPizza.pizzaPrice}{' '}
-           {/* <button onClick={addToCart}>Add to Cart</button>
-           <button
-             disabled={!cart.find((p) => p._id === currentPizza._id)}
-             onClick={removeFromCart}
-           >
-             Remove from Cart
-           </button> */}
-         </p>
-
-         {/* <img
-           src={`/images/${currentProduct.image}`}
-           alt={currentPizza.name}
-         /> */}
-
-<div className="">
-      <h3>Select Toppings</h3>
-      <ul className="">
-        {sizes.map(({ name, price }) => (
-          <>
-            <input
-              type="radio"
-              name="pizza-sizes"
-              value={price}
-              onChange={() => {
-                setBasePrice(price);
-              }}
-            />
-            <b style={{ color: "red" }}>{name}</b>
-          </>
-        ))}
-      </ul>
-
-      <ul className="">
-        {toppings.map(({ name, price }, index) => {
-          return (
-            <li key={index}>
+        <div className="product">        
+          <center>
+            <div className="container my-1">
+              <Link to="/menu">← Back to Products</Link>
+              <h2>{currentPizza.pizzaName}</h2>
               <div className="">
-                <div className="">
-                  <input
-                    type="checkbox"
-                    id={`custom-checkbox-${index}`}
-                    name={name}
-                    value={name}
-                    checked={checkedState[index]}
-                    onChange={() => handleOnChange(index, "topping")}
-                  />
-                  <label htmlFor={`custom-checkbox-${index}`}>{name}</label>
-                </div>
-                <div className="">{getFormattedPrice(price)}</div>
-              </div>
-            </li>
-          );
-        })}
-
-        <li>
-          <div className="">
-              <div className="">
-                <button onClick={decrementCount}>-</button>
-                {count}
-                <button onClick={incrementCount}>+</button>   
+              <h3>Select Toppings</h3>
+              <ul className="">
+                {sizes.map(({ name, price }) => (
+                  <>
+                    <input
+                      type="radio"
+                      name="pizza-sizes"
+                      value={price}
+                      onChange={() => {
+                        setBasePrice(price);
+                      }}
+                    />
+                    <b style={{ color: "red" }}>{name}</b>
+                  </>
+                ))}
+              </ul>
+              <ul className="">
+                {toppings.map(({ name, price }, index) => {
+                  return (
+                    <li key={index}>
+                      <div className="">
+                        <div className="">
+                          <input
+                            type="checkbox"
+                            id={`custom-checkbox-${index}`}
+                            name={name}
+                            value={name}
+                            checked={checkedState[index]}
+                            onChange={() => handleOnChange(index, "topping")}
+                          />
+                          <label htmlFor={`custom-checkbox-${index}`}>{name}</label>
+                        </div>
+                        <div className="">{getFormattedPrice(price)}</div>
+                      </div>
+                    </li>
+                  );
+                })}
+                <li>
+                  <div className="">
+                    <div className="">
+                      <button onClick={decrementCount}>-</button>
+                      {count}
+                      <button onClick={incrementCount}>+</button>   
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <div>
+                <p>
+                  <strong>Price:</strong>{getFormattedPrice(total * count)}{' '}
+                  <button onClick={addToCart}>Add to Cart</button>   
+                </p>
               </div>
             </div>
-            {/* <div className="">
-              <div className="">Total:</div>
-              <div className="">{getFormattedPrice(total * count)}</div>
-            </div> */}
-        </li>
-      </ul>
-
-      <div>
-      <p>
-            {/* <strong>Price:</strong>${currentProduct.price}{' '} */}
-            <strong>Price:</strong>${getFormattedPrice(total * count)}{' '}
-            <button onClick={addToCart}>Add to Cart</button>
-            <button
-              // disabled={!cart.find((p) => p._id === currentProduct._id)}
-              onClick={removeFromCart}
-            >
-              Remove from Cart
-            </button>
-          </p>
-      </div>
-
-    </div>
-       </div>
-
-       
-      ) : null}
-      {/* {loading ? <img src={spinner} alt="loading" /> : null}
-      <Cart /> */}
-      
+            </div>
+          </center>
+        </div>
+      ) : null}      
     </>
-
-
-
-    
-
-    
   );
 }

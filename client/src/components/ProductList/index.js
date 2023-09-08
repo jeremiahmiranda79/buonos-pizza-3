@@ -22,26 +22,25 @@ function ProductList() {
   }, [data, loading, dispatch]);
 
   return (
-      <div className="my-2">
-        <h2>Our Products:</h2>
-        {state.pizzas.length ? (
-          <div className="flex-row">
-            {state.pizzas.map((pizza) => (
-            <ProductItem
-              key={pizza._id}
-              _id={pizza._id}
-              image={pizza.image}
-              name={pizza.pizzaName}
-              price={pizza.pizzaPrice}
-              quantity={pizza.quantity}
-            />
-          ))}
-          </div>
-        ) : (
-          <h3>You haven't added any products yet!</h3>
-        )}
-
-      </div>
+    <div className="my-2">
+      <h2>Our Pizzas:</h2>
+      {state.pizzas.length ? (
+        <div className="flex-row shadow-lg">
+          {state.pizzas.map((pizza) => (
+          <ProductItem
+            key={pizza._id}
+            _id={pizza._id}
+            image={pizza.image}
+            name={pizza.pizzaName}
+            price={pizza.pizzaPrice}
+            quantity={pizza.quantity}
+          />
+        ))}
+        </div>
+      ) : (
+        <h3>You haven't added any products yet!</h3>
+      )}
+    </div>
   );
 }
 
