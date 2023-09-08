@@ -21,8 +21,8 @@
         "google-maps-react": "^2.0.6"
     },
     "scripts": {
-        "start": "react-scripts",
-        "build": "react-scripts"
+        "start": "react-scripts start",
+        "build": "react-scripts build"
     },
     "eslintConfig": {
         "extends": [
