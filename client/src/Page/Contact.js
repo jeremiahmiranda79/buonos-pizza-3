@@ -55,38 +55,38 @@ const Contact = () => {
                 defaultValue={formState.name}
                 onChange={handleChange}
               />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="email" className="form-label">
+                    Email address
+                    </label>
+                    <input
+                    type="email"
+                    name="email"
+                    className="form-control"
+                    placeholder="Enter email"
+                    defaultValue={formState.email}
+                    onChange={handleChange}
+                    />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="message" className="form-label">
+                    message
+                    </label>
+                    <textarea
+                    name="message"
+                    className="form-control"
+                    rows="3"
+                    placeholder="Enter message"
+                    defaultValue={formState.message}
+                    onChange={handleChange}
+                    ></textarea>
+                    </div>
+                    <button type="submit" className="btn btn-primary">
+                        {btnText}
+                    </button>
+                    </form>
             </div>
-
-            <div className="mb-3">
-              <label htmlFor="email" className="form-label">
-                Email address
-              </label>
-                <input
-                  type="email"
-                  name="email"
-                  className="form-control"
-                  placeholder="Enter email"
-                  defaultValue={formState.email}
-                  onChange={handleChange}
-                />
-            </div>
-
-            <div className="mb-3">
-              <label htmlFor="message" className="form-label">
-                message
-              </label>
-              <textarea
-                name="message"
-                className="form-control"
-                rows="3"
-                defaultValue={formState.message}
-                onChange={handleChange}
-              />
-            </div>
-
-            <button type="submit" className="btn btn-primary">
-              {btnText}
-            </button>
           </form>
         </center>
       </div>
