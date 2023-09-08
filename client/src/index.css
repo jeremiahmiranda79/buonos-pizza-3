@@ -299,9 +299,12 @@ input:focus {
 
 .contact {
     height: 100vh;
-    background-image: url(./assets/place.png);
+    font-weight: bold;
+    text-align: left;
+    background-image: url(./assets/background.jpg);
     background-repeat:no-repeat;
     background-size: cover;
+    background-position: center center;
 }
 
 .about {
@@ -314,6 +317,18 @@ input:focus {
     height: 100vh;
 }
 
+.about h1 {
+    font-weight: bold;
+    text-align: left;
+    width: 50%;
+    padding-bottom: 20px;
+    text-shadow:
+    -1.5px -1.5px 0 #0f5606,
+    1.5px -1.5px 0 #0f5606,
+    -1.5px 1.5px 0 #0f5606,
+    1.5px 1.5px 0 #0f5606;
+}
+
 .about .caption {
     flex: 1;
     padding: 20px;
@@ -322,6 +337,13 @@ input:focus {
 
 .about p {
     text-align: left;
+    width: 50%;
+    font-size: 28px;
+    text-shadow:
+    -1.5px -1.5px 0 #e80b0b,
+    1.5px -1.5px 0 #e80b0b,
+    -1.5px 1.5px 0 #e80b0b,
+    1.5px 1.5px 0 #e80b0b;
 }
 
 .flex-row {
@@ -363,13 +385,10 @@ input:focus {
     width: 350px;
     height: 375px;
     text-align: center;
-
     margin-top: 15px;
     margin-bottom: 15px;
     margin-left: 15px;
     margin-right: 15px;
-
-    
 }
 
 .home {
