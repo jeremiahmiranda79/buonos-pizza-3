@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-
 const { model, Schema } = mongoose;
 
 const toppingsSchema = new Schema({

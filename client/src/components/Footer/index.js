@@ -29,35 +29,29 @@ const Footer = () => {
               <i className={`${icon.name}`}></i>
             </a>
           ))}  
-
           <div className="d-flex px-5 py-1">
             <div className="mx-2 my-2 px-2">
-            <p><strong>FOLLOW US</strong></p>
-            <div>
+              <p><strong>FOLLOW US</strong></p>
+              <div>
                 <p>instagram</p>
                 <p>Facebook</p>
-            </div>  
-          </div>
-
-          <div className="mx-2 my-2 px-2">
-            <p><strong>LEARN MORE</strong></p>
-            <div>
-                <p>Contact Us</p>
+              </div>  
             </div>
-          </div>
-
-          <div className="mx-2 my-2 px-2">
-            <p><strong>LEGAL</strong></p>
-            <div>
+            <div className="mx-2 my-2 px-2">
+              <p><strong>LEARN MORE</strong></p>
+              <div>
+                <p>Contact Us</p>
+              </div>
+            </div>
+            <div className="mx-2 my-2 px-2">
+              <p><strong>LEGAL</strong></p>
+              <div>
                 <p>Privacy Policy</p>
                 <p>Terms & Conditions</p>
-            </div>  
+              </div>  
+            </div>
           </div>
-
-        </div>
-
       </div>
-
       <center style={{backgroundColor: "gray"}}>
         <p>
           © 2023 Buonos Pizza Gilbert™. All Rights Reserved.

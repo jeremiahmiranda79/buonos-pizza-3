@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
+import MenuCard from "../components/MenuCard/MenuCard";
+
+import AppCarousel from "../components/Carousel/Carousel";
 
 const Home = () => {
-    return (
-        <>
-              <h1>Paloma</h1>  
-        </>
-    )
-}
+  return (
+    <div className="home">
+      <AppCarousel />
+      <center>
+        <section className="featured-products">
+          <h2>Featured Pizzas</h2>
+          <MenuCard />
+        </section>
+      </center>
+    </div>
+  );
+};
 
-export default Home
+export default Home;
