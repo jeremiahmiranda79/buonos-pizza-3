@@ -1,49 +1,53 @@
 import React, { useState, useRef } from 'react';
 import emailjs from '@emailjs/browser';
+
 const Contact = () => {
-    const [formState, setFormState] =
+  const [formState, setFormState] =
     useState({
-        name: '',
-        email: '',
-        message: '',
-    });
-    const [btnText, setBtnText] = useState ('Submit');
-    const form= useRef();
-    const handleChange = (e) => {
-        e.preventDefault();
-        setFormState({  ...formState, [e.target.name]: e.target.value });
-    };
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(formState);
-        emailjs.sendForm(
-            'service_mnv4xud',
-            'template_tbarpys',
-            form.current,
-            'jXiV5LSd3prcbSCXZ')
-        .then(
-            (result) => {
-            console.log(result.text);
-            setBtnText ('Message Sent!');
-            setTimeout(() => {
-            window.location.reload();
-        }, 3000);
-    },
-            (error) => {
-            console.log(error.text);
-            setBtnText ('Error!');
+      name: '',
+      email: '',
+      message: '',
+  });
+
+  const [btnText, setBtnText] = useState ('Submit');
+  const form= useRef();
+
+  const handleChange = (e) => {
+    e.preventDefault();
+    setFormState({  ...formState, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formState);
+    emailjs.sendForm(
+      'service_mnv4xud',
+      'template_tbarpys',
+      form.current,
+      'jXiV5LSd3prcbSCXZ')
+      .then(
+        (result) => {
+          console.log(result.text);
+          setBtnText ('Message Sent!');
+          setTimeout(() => {
+          window.location.reload();}, 3000);
+        },
+        (error) => {
+          console.log(error.text);
+          setBtnText ('Error!');
         });
-    };
-    return (
-        <div className='contact'>
-          <div className='container'>
-          <center>
+  };
+
+  return (
+    <div className='contact'>
+      <div className='container'>
+        <center>
           <form ref={form} onSubmit={handleSubmit}>
             <div className="mb-3">
-                <label htmlFor="name" className="form-label">
-                    Name
-                </label>
-                <input
+              <label htmlFor="name" className="form-label">
+                  Name
+              </label>
+              <input
                 type="text"
                 name="name"
                 className="form-control"
@@ -82,9 +86,12 @@ const Contact = () => {
                         {btnText}
                     </button>
                     </form>
+            </div>
+          </form>
         </center>
-        </div>
-        </div>
-    );
+      </div>
+    </div>
+  );
 }
+
 export default Contact

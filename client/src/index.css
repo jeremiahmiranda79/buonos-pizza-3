@@ -393,6 +393,10 @@ input:focus {
     margin-right: 15px;
 }
 
+.home {
+    
+}
+
 .error-text {
     color: var(--error);
 }
