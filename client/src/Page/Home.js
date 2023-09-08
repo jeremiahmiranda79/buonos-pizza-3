@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import MenuCard from "./MenuCard";
+import MenuCard from "../components/MenuCard/MenuCard";
+
 import AppCarousel from "../components/Carousel/Carousel";
 
 const Home = () => {

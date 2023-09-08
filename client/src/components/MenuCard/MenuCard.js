@@ -1,15 +1,15 @@
 import React from "react";
-import image1 from '../assets/calzone.png';
-import image2 from '../assets/chickensalad.png';
-import image3 from '../assets/coldsub.png';
-import image4 from '../assets/hotsub.png';
-import image5 from '../assets/meatballsliders.png';
-import image6 from '../assets/pasta.png';
-import image7 from '../assets/pizza.png';
-import image8 from '../assets/sausagerolls.png';
-import image9 from '../assets/stromboli.png';
-import image10 from '../assets/tiramisu.png';
-import image11 from '../assets/beer.png';
+import image1 from '../../assets/calzone.png';
+import image2 from '../../assets/chickensalad.png';
+import image3 from '../../assets/coldsub.png';
+import image4 from '../../assets/hotsub.png';
+import image5 from '../../assets/meatballsliders.png';
+import image6 from '../../assets/pasta.png';
+import image7 from '../../assets/pizza.png';
+import image8 from '../../assets/sausagerolls.png';
+import image9 from '../../assets/stromboli.png';
+import image10 from '../../assets/tiramisu.png';
+import image11 from '../../assets/beer.png';
 
 function MenuCard() {
   return (

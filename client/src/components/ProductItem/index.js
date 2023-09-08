@@ -12,7 +12,7 @@ function ProductItem(item) {
   } = item;
 
   return (
-    <div className="card px-1 py-1">
+    <div className="card shadow-lg px-1 py-1">
       <Link to={`/products/${_id}`}>
         <img
           width={200}
