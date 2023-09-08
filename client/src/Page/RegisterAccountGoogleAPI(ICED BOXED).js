@@ -11,7 +11,7 @@
 
 // export default RegisterAccount;
 import React from "react";
-import AddressForm from "../components/SignUpFormTest";
+import AddressForm from "../components/SignUpFormTestGoogleAPI(ICED BOX)";
 // import { GoogleApiWrapper } from ".";
 const googleAutoAddress = () => {
   return (
