@@ -21,8 +21,8 @@
         "google-maps-react": "^2.0.6"
     },
     "scripts": {
-        "start": "react-scripts",
-        "build": "react-scripts"
+        "start": "react-scripts --openssl-legacy-provider start",
+        "build": "react-scripts --openssl-legacy-provider build"
     },
     "eslintConfig": {
         "extends": [
