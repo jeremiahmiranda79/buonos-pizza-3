@@ -104,7 +104,7 @@ export default function ProductDetails() {
               <ul className="">
                 {toppings.map(({ name, price }, index) => {
                   return (
-                    <li key={index}>
+                    <div key={index}>
                       <div className="">
                         <div className="">
                           <input
@@ -119,10 +119,10 @@ export default function ProductDetails() {
                         </div>
                         <div className="">{getFormattedPrice(price)}</div>
                       </div>
-                    </li>
+                    </div>
                   );
                 })}
-                <li>
+                <div>
                   <div className="">
                     <div className="">
                       <button onClick={decrementCount}>-</button>
@@ -130,7 +130,7 @@ export default function ProductDetails() {
                       <button onClick={incrementCount}>+</button>   
                     </div>
                   </div>
-                </li>
+                </div>
               </ul>
               <div>
                 <p>

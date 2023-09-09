@@ -7,6 +7,8 @@
     --error: rgb(228, 46, 1);
     --spacing-one: calc(1rem * 0.5);
     --spacing-two: calc(1rem);
+
+    --special-green: #134b0c;
 }
   
 * {
@@ -80,7 +82,7 @@ a:hover {
 }
 
 header {
-    background: var(--primary);
+    background-color: var(--special-green);
 }
 
 header a {
@@ -111,7 +113,8 @@ footer {
     bottom: 0; 
     width: 100%;
     height: auto;
-    background-color: var(--primary);
+    /* background-color: var(--primary); */
+    background-color: var(--special-green);
 }
 
 footer .footer-logo {
@@ -191,6 +194,15 @@ input:focus {
     /* background-color: black; */
 }
 
+.container .card-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.container .card-body h3 {
+    margin-top: auto;    
+}
+
 .login .container {
     width: 25%;
     max-width: 1200px;
@@ -213,6 +225,11 @@ input:focus {
     background-size: cover;
 }
 
+.login-form .container{
+    background-color: #343131;
+    color: var(--light);
+}
+
 .signup .container {
     width: 25%;
     max-width: 1200px;
@@ -220,7 +237,7 @@ input:focus {
     margin-right: auto;
     padding-top: 20px;
     padding-bottom: 20px;
-    background-color: #fafafa;
+    background-color: #343131;
     position: relative;
     top: 50%;
     transform: translateY(30%);
@@ -233,6 +250,22 @@ input:focus {
     background-image: url(./assets/fondo.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.signup h2{
+    color: var(--light);
+}
+
+.signup label {
+    color: var(--light);
+}
+
+.submit-btn {
+    background-color: var(--secondary);
+}
+
+.contact label {
+    color: var(--light);
 }
 
 .product .container {
@@ -307,6 +340,10 @@ input:focus {
     background-repeat:no-repeat;
     background-size: cover;
     background-position: center center;
+}
+
+.contact h3 {
+    color: var(--light);
 }
 
 .about {
