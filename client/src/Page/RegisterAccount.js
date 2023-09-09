@@ -38,7 +38,7 @@ function RegisterAccount(props) {
         <Link to="/login">← Go to Login</Link>
         <h2>Signup</h2>
         <form onSubmit={handleFormSubmit}>
-          <div className="flex-row space-between my-2">
+          <div className="signup-form flex-row space-between my-2">
             <label htmlFor="firstName">First Name:</label>
             <input
               placeholder="First"
@@ -78,8 +78,10 @@ function RegisterAccount(props) {
               onChange={handleChange}
             />
           </div>
-          <div className="flex-row flex-end">
-            <button type="submit">Submit</button>
+          <div>
+            <center>
+              <button className="submit-btn" type="submit">Submit</button>
+            </center>   
           </div>
         </form>
         </div>

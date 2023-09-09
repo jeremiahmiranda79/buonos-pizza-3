@@ -9,7 +9,7 @@ const Home = () => {
       <AppCarousel />
       <center>
         <section className="featured-products">
-          <h2>Featured Pizzas</h2>
+          <h2>Featured Items</h2>
           <MenuCard />
         </section>
       </center>

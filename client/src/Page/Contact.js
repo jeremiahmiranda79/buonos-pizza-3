@@ -45,6 +45,7 @@ const Contact = () => {
     <div className="contact">
       <div className="container">
         <center>
+          <h3>Submit your message</h3>
           <form ref={form} onSubmit={handleSubmit}>
             <div className="mb-3">
               <label htmlFor="name" className="form-label">
@@ -85,7 +86,7 @@ const Contact = () => {
                 onChange={handleChange}
               ></textarea>
             </div>
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="submit-btn">
               {btnText}
             </button>
           </form>
